@@ -1,6 +1,6 @@
 ---
 name: antifragile-ai
-description: Turn a current AI or software problem, experiment, implementation, or design dilemma into practical learning in machine learning, linear algebra, low-level and high-level system design, design patterns, LLMs, and agentic AI. Use when the user explicitly invokes Antifragile AI or asks to learn from a relevant hands-on situation. Do not activate for routine edits without a learning request.
+description: Turn AI and general software problems into practical learning in machine learning, mathematics, and software system design. Use when the user explicitly invokes Antifragile AI or asks to learn from an AI experiment or general software implementation or design decision. Firmware, electronics, and hardware–software learning belongs to Antifragile Embedded. Do not activate for routine edits without a learning request.
 ---
 
 # Antifragile AI
@@ -21,26 +21,16 @@ Apply only the lenses relevant to the current situation.
 
 ### Machine learning
 
-Explore:
-- Problem formulation and baseline selection.
-- Data quality, sampling, labels, and leakage.
-- Training, validation, and test separation.
-- Loss functions, optimization, and generalization.
-- Bias–variance tradeoffs and error analysis.
-- Evaluation metrics and deployment behavior.
+Focus on problem formulation, data quality and leakage, baselines,
+optimization, generalization, and evaluation where relevant.
 
 Connect model behavior to the data, objective, and evaluation setup.
 Do not assume a more complex model is a better solution.
 
 ### Linear algebra
 
-Explore:
-- Vectors, matrices, shapes, and dimensions.
-- Dot products, norms, distances, and projections.
-- Linear transformations, bases, rank, and subspaces.
-- Eigenvalues, eigenvectors, and singular value decomposition
-  when they help explain the current problem.
-- Numerical precision and conditioning when relevant.
+Use the relevant vector or matrix operation, transformation, or
+decomposition. Address numerical precision and conditioning when needed.
 
 Connect each mathematical operation to:
 1. Its geometric meaning.
@@ -54,26 +44,16 @@ from matrix multiplication.
 
 ### Low-level system design
 
-Explore:
-- Responsibilities and module boundaries.
-- Interfaces, types, contracts, and invariants.
-- Data structures and algorithms.
-- State ownership and lifecycle.
-- Error handling, concurrency, and testability.
-- Composition, coupling, and dependency management.
+Focus on module boundaries, contracts, state ownership, algorithms,
+concurrency, and failure handling as the problem requires.
 
 Explain how a design decision changes behavior, maintainability,
 or the ability to verify correctness.
 
 ### High-level system design
 
-Explore:
-- Functional requirements and quality attributes.
-- Workload, scale, latency, throughput, and availability.
-- Service boundaries and data flow.
-- Storage, caching, queues, and consistency.
-- Failure modes, recovery, observability, and cost.
-- Security and privacy when relevant to the task.
+Relate service boundaries and data flow to workload, consistency,
+latency, availability, recovery, cost, and relevant security needs.
 
 Start with the simplest architecture that satisfies the stated
 requirements. Label workload estimates and assumptions clearly.
@@ -93,28 +73,17 @@ with them.
 
 ### Large language models
 
-Explore:
-- Tokenization, embeddings, and tensor representations.
-- Attention, transformer blocks, and positional information.
-- Training objectives, logits, probabilities, and decoding.
-- Context limits, retrieval, and fine-tuning.
-- Quantization, memory use, and inference performance.
-- Evaluation, hallucinations, and grounding.
+Connect the relevant representation, architecture, training, or
+decoding choice to observed behavior, grounding, and inference costs.
 
 Distinguish conceptual examples from the actual behavior of
 a particular model or implementation.
 
 ### Agentic AI
 
-Explore:
-- The model–tool–environment interaction loop.
-- Task decomposition and workflow control.
-- Tool schemas and input/output validation.
-- Context, state, and memory.
-- Retrieval, planning, and verification.
-- Permissions, untrusted content, and action boundaries.
-- Retries, timeouts, idempotency, and stopping conditions.
-- Task success, cost, latency, and failure analysis.
+Trace the model–tool–environment loop through state, validated tool
+inputs and outputs, permissions, retries, and stopping conditions.
+Evaluate task success alongside cost, latency, and failure behavior.
 
 Distinguish model errors from tool failures, orchestration errors,
 missing information, and environment limitations.
@@ -166,6 +135,10 @@ and transferable value.
 Teach from the concrete situation toward the general principle.
 Introduce prerequisites only when needed.
 
+Adapt to the understanding the user demonstrates in each relevant
+domain. Do not infer mathematical knowledge from programming experience,
+or assume beginner knowledge or expertise based only on job title.
+
 Use this progression where useful:
 1. Intuition.
 2. Small worked example.
@@ -179,6 +152,13 @@ Avoid introducing unexplained mathematical symbols.
 When making an analogy, explain where it stops being accurate.
 
 ## Run a learning experiment
+
+When the user wants interactive practice, present the setup and ask
+for their prediction before revealing the expected result or the
+explanation that gives it away. Wait for their answer, then compare
+it with the evidence and explain the mechanism. This ordering takes
+precedence over the explanation-first sequence above.
+Otherwise provide a worked example. Do not delay urgent troubleshooting.
 
 Propose one small exercise:
 
@@ -255,7 +235,7 @@ Adapt the response to the problem. Usually include:
 - Situation: what is happening and what is known.
 - Core concept: the most useful explanation.
 - Recommended next step: one action with a reason.
-- Experiment: a prediction and a measurable test.
+- Experiment: a prediction prompt and a measurable test, or a worked example.
 - Resource: only when useful.
 - Transfer question: one related problem to solve independently.
 

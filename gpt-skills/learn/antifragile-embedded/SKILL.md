@@ -1,6 +1,6 @@
 ---
-name: Antifragile-embedded
-description: Turn an engineering problem, malfunction, debugging session, or design dilemma into practical learning in embedded software, systems thinking, hardware–software interactions, and software architecture. Use when the user asks to learn from the current situation or explicitly invokes Antifragile. Do not activate for unrelated questions or straightforward edits without a learning request.
+name: antifragile-embedded
+description: Turn firmware, electronics, and hardware–software problems into practical engineering learning. Use when the user explicitly invokes Antifragile Embedded or asks to learn from an embedded debugging session or design decision. General software and AI learning belongs to Antifragile AI. Do not activate for routine edits without a learning request.
 ---
 
 # Antifragile Embedded Engineering
@@ -87,6 +87,13 @@ do not invent register semantics or circuit behavior.
 
 ## Create a feedback loop
 
+When the user wants interactive practice, present the setup and ask
+for their prediction before revealing the expected result or the
+explanation that gives it away. Wait for their answer, then compare
+it with the evidence and explain the mechanism. This ordering takes
+precedence over the explanation-first sequence above.
+Otherwise provide a worked example. Do not delay urgent troubleshooting.
+
 Propose one small, practical exercise:
 
 1. Predict: What should happen, and why?
@@ -135,7 +142,7 @@ Adapt the length to the problem. A normal response should contain:
 - Situation: a brief account of the problem and evidence.
 - Key concept: the most useful explanation.
 - Next action: one recommended diagnostic or design step.
-- Learning exercise: a prediction and a small test.
+- Learning exercise: a prediction prompt and a small test, or a worked example.
 - Resource: only if useful.
 - Transfer question: one short question checking independent use.
 
