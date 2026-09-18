@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Learning Atlas</title>
+<style>
+:root{color-scheme:dark;--bg:#101421;--panel:#1b2235;--line:#43506c;--text:#edf2ff;--muted:#b7c3da;--accent:#b8a1ff}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,sans-serif}main{max-width:1320px;margin:auto;padding:32px}h1{font-size:clamp(2rem,5vw,3.6rem);line-height:1.1;margin:12px 0}h2{font-size:1.2rem}h3{font-size:1rem;margin-bottom:4px}p{margin:8px 0 16px}.eyebrow{color:var(--accent);letter-spacing:.14em;text-transform:uppercase;font-size:.8rem}.muted,small{color:var(--muted)}button,select,input,textarea{font:inherit;color:inherit;background:#111829;border:1px solid var(--line);border-radius:9px;padding:10px}button{cursor:pointer}button:hover{border-color:var(--accent)}:focus-visible{outline:3px solid var(--accent);outline-offset:4px}label{display:block}textarea,input{width:100%}textarea{min-height:100px}header,.toolbar,.legend{margin-bottom:24px}.toolbar,.legend{display:flex;gap:12px;flex-wrap:wrap;align-items:center}.legend span{border-left:4px solid var(--status);padding-left:8px;font-size:.85rem}.layout{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(290px,1fr);gap:24px}.panel{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:24px}.recommend{border-color:var(--accent);margin-bottom:24px}.branches{display:grid;gap:24px}.branch h2{margin-top:0}.nodes{display:grid;gap:20px}.node{position:relative;width:100%;text-align:left;border-left:5px solid var(--status);padding:16px;background:#141c2e}.node.suggested{border-style:dashed}.node[aria-pressed=true]{outline:2px solid var(--accent);outline-offset:3px}.node strong,.node small{display:block}.node small{margin-top:6px}.node:not(:first-child)::before{content:'?';position:absolute;top:-25px;left:24px;color:var(--muted)}.node .tag{float:right;font-size:.75rem;color:var(--muted)}#details{align-self:start}#details ul{padding-left:20px}.links{display:flex;flex-wrap:wrap;gap:8px}.links button{padding:5px 9px;font-size:.85rem}.field{margin-top:14px}.primary{background:#c5b2ff;color:#171027;font-weight:650}#message{min-height:26px;color:#d7caff}progress{width:100%;accent-color:var(--accent)}footer{margin-top:32px;font-size:.85rem;color:var(--muted)}[hidden]{display:none!important}@media(max-width:800px){main{padding:20px}.layout{grid-template-columns:1fr}.panel{padding:18px}.toolbar>*{flex:1}h1{font-size:2.4rem}}
+</style>
+</head>
+<body>
+<main>
+<header><div class="eyebrow">Learning Atlas / Embedded engineering</div><h1>Your next level needs evidence.</h1><p id="intro" class="muted"></p><div id="summary"></div><progress id="progress" value="0" max="1" aria-label="Demonstrated skills"></progress></header>
+<section class="panel recommend" aria-labelledby="next-title"><div class="eyebrow">Recommended next skill</div><h2 id="next-title"></h2><p id="reason"></p><button id="open-next">Explore exercise ?</button></section>
+<div class="toolbar"><label>Branch <select id="filter"><option value="all">All branches</option></select></label><button id="export">Export JSON</button><button id="import">Import JSON</button><input type="file" id="file" accept="application/json,.json" hidden></div>
+<div class="legend" aria-label="Status legend" id="legend"></div>
+<p class="muted"><small>Dashed cards are proposed skills. Arrows indicate reading order within a branch; named prerequisites show the actual dependencies.</small></p>
+<p id="message" role="status" aria-live="polite"></p>
+<div class="layout"><section id="tree" class="branches" aria-label="Skill branches"></section><aside id="details" class="panel" aria-label="Selected skill details"><h2>Select a skill</h2><p>Inspect its evidence and try its next exercise.</p></aside></div>
+<footer>Open this file directly in a browser. Changes save in this browser when storage is available. Export JSON for a portable backup and share the latest export in your next learning session. Import replaces the current record after validation; export first to keep a backup. Browser storage may be cleared and is not shared between devices or reliably between file locations.</footer>
+</main>
+<!-- Edit only this data block to personalise the starter. Keep IDs stable.
+     Use a unique treeId for each learner/tree. Increment revision after session updates.
+     Escape less-than signs as \u003c when serialising data into this script element. -->
+<script type="application/json" id="skill-data">
+{
+  "schemaVersion": 1,
+  "treeId": "antifragile-embedded-learning",
+  "revision": 1,
+  "starter": true,
+  "branches": [
+    {
+      "id": "experiments",
+      "label": "Investigation & experiments"
+    },
+    {
+      "id": "design",
+      "label": "System design"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "observe",
+      "title": "Separate observations from hypotheses",
+      "branch": "experiments",
+      "description": "Distinguish measured behaviour from possible explanations.",
+      "status": "Not started",
+      "suggested": true,
+      "sessions": [],
+      "evidence": [],
+      "prerequisites": [],
+      "related": [],
+      "exercise": "For a simulated delayed event, record the expected and observed times and two possible causes.",
+      "criterion": "Identify which statements are observations and propose a test that distinguishes the causes."
+    },
+    {
+      "id": "timing",
+      "title": "Measure timing behaviour",
+      "branch": "experiments",
+      "description": "Measure event timing to test a scheduling explanation.",
+      "status": "Not started",
+      "suggested": true,
+      "sessions": [],
+      "evidence": [],
+      "prerequisites": [
+        "observe"
+      ],
+      "related": [],
+      "exercise": "Use a small simulation to compare expected and observed event intervals.",
+      "criterion": "Show measurements and explain whether they support the timing hypothesis."
+    },
+    {
+      "id": "state",
+      "title": "Model a state machine",
+      "branch": "design",
+      "description": "Describe states and the events that cause transitions.",
+      "status": "Not started",
+      "suggested": true,
+      "sessions": [],
+      "evidence": [],
+      "prerequisites": [],
+      "related": [],
+      "exercise": "Implement a simulated two-state switch with an explicit transition table.",
+      "criterion": "Explain each transition and demonstrate behaviour for an unexpected event."
+    }
+  ],
+  "recommendation": {
+    "nodeId": "observe",
+    "reason": "A proposed starting point with no prerequisites. Try the exercise to establish your first evidence."
+  }
+}
+</script>
+<script>
+'use strict';
+const STATES=['Not started','Introduced','Practised','Demonstrated'];
+const COLORS=['#8b9bb7','#75baff','#efc36d','#72dfbb'];
+const $=id=>document.getElementById(id);
+const el=(tag,text,cls)=>{const item=document.createElement(tag);if(text!==undefined)item.textContent=text;if(cls)item.className=cls;return item;};
+function validate(d){
+ const fail=()=>{throw new Error('Invalid learning record. Check schema version, IDs, evidence and prerequisites.');};
+ const str=x=>typeof x==='string'&&x.trim().length>0;
+ const strings=x=>Array.isArray(x)&&x.every(str);
+ if(!d||d.schemaVersion!==1||!str(d.treeId)||!Number.isInteger(d.revision)||d.revision<1||typeof d.starter!=='boolean'||!Array.isArray(d.branches)||!Array.isArray(d.nodes)||!d.nodes.length)fail();
+ const branches=new Set();for(const b of d.branches){if(!str(b.id)||!str(b.label)||branches.has(b.id))fail();branches.add(b.id);}
+ const ids=new Set();for(const n of d.nodes){
+  if(!['id','title','description','exercise','criterion'].every(k=>str(n[k]))||ids.has(n.id)||!branches.has(n.branch)||!STATES.includes(n.status)||typeof n.suggested!=='boolean'||!strings(n.sessions)||!strings(n.prerequisites)||!strings(n.related)||!Array.isArray(n.evidence))fail();
+  ids.add(n.id);
+  for(const e of n.evidence)if(!e||!str(e.note)||!str(e.source)||!str(e.date)||typeof e.meetsCriterion!=='boolean')fail();
+  if(n.status!=='Not started'&&(n.suggested||!n.evidence.length))fail();
+  if(n.status==='Demonstrated'&&!n.evidence.some(e=>e.meetsCriterion))fail();
+ }
+ for(const n of d.nodes)if([...n.prerequisites,...n.related].some(id=>!ids.has(id)||id===n.id))fail();
+ const visiting=new Set(),done=new Set(),byId=new Map(d.nodes.map(n=>[n.id,n]));
+ function visit(id){if(visiting.has(id))fail();if(done.has(id))return;visiting.add(id);byId.get(id).prerequisites.forEach(visit);visiting.delete(id);done.add(id);}
+ d.nodes.forEach(n=>visit(n.id));
+ if(d.recommendation!==null&&(!d.recommendation||!ids.has(d.recommendation.nodeId)||!str(d.recommendation.reason)))fail();
+ return d;
+}
+const seed=validate(JSON.parse($('skill-data').textContent));
+let data=structuredClone(seed),selected=null;
+const storageKey='learning-atlas:'+seed.treeId;
+function message(text){$('message').textContent=text;}
+try{const saved=localStorage.getItem(storageKey);if(saved){const candidate=validate(JSON.parse(saved));if(candidate.treeId!==seed.treeId)throw Error('Mismatched tree');if(candidate.revision>=seed.revision)data=candidate;else message('This file has a newer revision. Its data was loaded; export before making changes if you need a backup.');}}catch(e){message('Local progress could not be loaded. Using the embedded data; export JSON to keep a backup.');}
+function save(){try{localStorage.setItem(storageKey,JSON.stringify(data));message('Saved in this browser. Export JSON before your next session.');}catch(e){message('Browser saving is unavailable. Export JSON to preserve these changes.');}}
+function recommended(){
+ const ready=n=>n.status!=='Demonstrated'&&n.prerequisites.every(id=>data.nodes.find(x=>x.id===id).status==='Demonstrated');
+ const chosen=data.recommendation&&data.nodes.find(n=>n.id===data.recommendation.nodeId);
+ if(chosen&&ready(chosen))return {node:chosen,reason:data.recommendation.reason};
+ const next=data.nodes.find(ready);
+ return next?{node:next,reason:'Its prerequisites are demonstrated (or none are required). Complete the exercise to add evidence.'}:null;
+}
+function render(){
+ const current=$('filter').value; $('filter').replaceChildren(new Option('All branches','all'));
+ for(const b of data.branches)$('filter').add(new Option(b.label,b.id));
+ $('filter').value=data.branches.some(b=>b.id===current)?current:'all';
+ $('intro').textContent=data.starter?'Starter tree ? These are proposed skills, not claims about past learning. Personalise with session notes, your explanations, exercises and test results.':'Learning record ? Progress is supported by the evidence recorded in each skill.';
+ const count=data.nodes.filter(n=>n.status==='Demonstrated').length;
+ $('summary').textContent=`${count} / ${data.nodes.length} skills demonstrated`;
+ $('progress').max=data.nodes.length;$('progress').value=count;
+ $('legend').replaceChildren(...STATES.map((s,i)=>{const a=el('span',s);a.style.setProperty('--status',COLORS[i]);return a;}));
+ const rec=recommended();$('next-title').textContent=rec?rec.node.title:'Choose a new learning challenge';$('reason').textContent=rec?rec.reason:'All current skills are demonstrated. Add a proposed skill from your next session.';$('open-next').hidden=!rec;$('open-next').onclick=()=>select(rec.node.id,true);
+ $('tree').replaceChildren();
+ for(const b of data.branches){
+  if($('filter').value!=='all'&&$('filter').value!==b.id)continue;
+  const group=el('section',undefined,'panel branch');group.append(el('h2',b.label));const nodes=el('div',undefined,'nodes');
+  for(const n of data.nodes.filter(n=>n.branch===b.id)){
+   const card=el('button',undefined,'node'+(n.suggested?' suggested':''));card.style.setProperty('--status',COLORS[STATES.indexOf(n.status)]);card.setAttribute('aria-pressed',String(selected===n.id));
+   if(n.suggested)card.append(el('span','Proposed','tag'));
+   card.append(el('strong',n.title),el('small',n.status),el('small','Requires: '+(n.prerequisites.map(id=>data.nodes.find(x=>x.id===id).title).join(', ')||'No prerequisites')));
+   card.onclick=()=>select(n.id,true);nodes.append(card);
+  }group.append(nodes);$('tree').append(group);
+ }
+ if(selected)showDetails(data.nodes.find(n=>n.id===selected));
+}
+function select(id,focus=false){selected=id;const n=data.nodes.find(n=>n.id===id);if($('filter').value!=='all'&&$('filter').value!==n.branch)$('filter').value='all';render();if(focus){$('details').scrollIntoView({behavior:'smooth',block:'nearest'});$('detail-title').focus({preventScroll:true});}}
+function showDetails(n){
+ const box=$('details');box.replaceChildren();const heading=el('h2',n.title);heading.id='detail-title';heading.tabIndex=-1;box.append(heading,el('p',n.description));
+ const section=(title,text)=>box.append(el('h3',title),el('p',text));
+ section('Session appearances',n.sessions.join(' ? ')||'Proposed skill; no session source recorded.');
+ box.append(el('h3','Evidence of progress'));const list=el('ul');
+ for(const e of n.evidence)list.append(el('li',`${e.date} ? ${e.note} Source: ${e.source}${e.meetsCriterion?' ? Completion criterion met.':''}`));
+ box.append(n.evidence.length?list:el('p','No evidence recorded.'));
+ for(const [title,key]of [['Prerequisites','prerequisites'],['Related concepts','related']]){
+  box.append(el('h3',title));const links=el('div',undefined,'links');
+  for(const id of n[key]){const button=el('button',data.nodes.find(x=>x.id===id).title);button.onclick=()=>select(id,true);links.append(button);}box.append(n[key].length?links:el('p','None recorded.'));
+ }
+ section('Small exercise',n.exercise);section('Completion criterion',n.criterion);
+ const form=el('form');form.append(el('h3','Record progress'),el('p','Use your work as evidence. Discussion or an assistant-written solution alone does not demonstrate your ability.','muted'));
+ const field=(text,input)=>{const label=el('label',text,'field');label.append(input);form.append(label);return input;};
+ const status=field('Status',el('select'));STATES.forEach(s=>status.add(new Option(s,s)));status.value=n.status;
+ const note=field('What did you do or explain?',el('textarea'));note.required=true;
+ const source=field('Session or evidence reference',el('input'));source.required=true;source.placeholder='Session date, exercise, file or test result';
+ const check=el('input');check.type='checkbox';check.style.width='auto';const label=el('label',undefined,'field');label.append(check,document.createTextNode(' This evidence meets the completion criterion.'));form.append(label);
+ const submit=el('button','Save evidence and progress','primary field');submit.type='submit';form.append(submit);
+ form.onsubmit=event=>{event.preventDefault();if(!note.value.trim()||!source.value.trim()){message('Add an evidence note and source.');return;}if(status.value==='Demonstrated'&&!check.checked&&!n.evidence.some(e=>e.meetsCriterion)){message('Demonstrated requires evidence meeting the completion criterion.');return;}
+ n.evidence.push({date:new Date().toISOString().slice(0,10),note:note.value.trim(),source:source.value.trim(),meetsCriterion:check.checked});n.status=status.value;if(n.status!=='Not started')n.suggested=false;if(!n.sessions.includes(source.value.trim()))n.sessions.push(source.value.trim());data.revision++;save();render();};box.append(form);
+}
+$('filter').onchange=render;
+$('export').onclick=()=>{const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});const url=URL.createObjectURL(blob);const a=el('a');a.href=url;a.download='learning-progress.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);};
+$('import').onclick=()=>$('file').click();
+$('file').onchange=async()=>{const file=$('file').files[0];if(!file)return;try{if(file.size>5000000)throw Error('File exceeds 5 MB.');const candidate=validate(JSON.parse(await file.text()));if(candidate.treeId!==seed.treeId)throw Error('This JSON belongs to a different learning tree.');data=candidate;selected=null;$('details').replaceChildren(el('h2','Select a skill'));save();render();}catch(e){message('Import rejected; current record unchanged. '+e.message);}finally{$('file').value='';}};
+render();
+</script>
+</body>
+</html>

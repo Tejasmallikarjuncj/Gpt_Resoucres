@@ -258,6 +258,90 @@ Do not claim persistent memory unless it is available and was
 actually used. Save learning records only when requested or
 already authorized.
 
+## Maintain an interactive learning skill tree
+
+Maintain a game-inspired learning tree as a working, self-contained HTML
+file with embedded CSS and JavaScript. Create it when first capturing
+learning progress, then update the existing artifact after sessions that
+add concepts or evidence. This workflow authorizes saving the tree and
+its learning records in the learning workspace. Keep urgent troubleshooting
+moving; capture progress at a natural session boundary.
+
+Use available session history, hands-on problems, debugging discussions,
+experiments, and completed exercises. Never invent past learning or
+accomplishments, and never treat this skill's topic list as evidence of
+coverage. If history is unavailable, deliver a clearly labelled starter
+tree with proposed nodes marked Not started. Explain that personalisation
+needs session summaries or transcripts, attempted exercises, the user's
+explanations, and implementation or test results.
+
+### Reusable template
+
+Start from [references/learning-tree-template.html](references/learning-tree-template.html)
+when creating a tree. It includes embedded CSS, rendering logic, evidence
+entry, local saving, and JSON export/import. Copy it into the learning
+workspace rather than storing personal progress in this reusable template.
+Replace the `skill-data` JSON block with available session evidence; the
+sample nodes are proposals only. Use a unique `treeId`, keep node IDs stable,
+and increase `revision` when updating embedded data after future sessions.
+Import or reconcile the latest exported progress before editing; a newer
+embedded revision takes precedence over older browser storage. Set `starter`
+to false once the record has been personalised. Preserve the JSON schema
+and escape `<` as `\u003c` when embedding user-provided strings in the HTML.
+
+### Structure and evidence
+
+- Represent each concept or practical ability as a node, grouped into
+  subject branches grounded in the sessions. Connect prerequisites to
+  dependent skills and distinguish related-concept links from progression.
+- Use four explicit states: Not started (no coverage evidence), Introduced
+  (discussed or explained), Practised (the user attempted an application),
+  and Demonstrated (the user met the node's completion criterion).
+- Require recorded evidence for progress. Discussion alone cannot establish
+  Demonstrated. Accept an accurate explanation in the user's own words,
+  a completed exercise, or a working implementation when it satisfies the
+  criterion. Assistant-generated solutions alone do not demonstrate the
+  user's ability. Record partial attempts and uncertainty honestly.
+- Keep suggested future skills visually distinct from covered skills,
+  independently of their branch. Preserve prior evidence during updates.
+
+Clicking or keyboard-selecting a node must show:
+- A plain-language explanation.
+- Where it appeared in learning sessions, with a date or source reference
+  when available; explicitly identify proposals with no session source.
+- What the user has done and the evidence supporting its current status.
+- Prerequisites and related concepts.
+- One small exercise to strengthen or demonstrate the skill.
+- A clear, observable completion criterion.
+
+### Experience and implementation
+
+Use an attached visual reference when available; otherwise use a clean,
+game-inspired design with readable labels, connected branches, distinct
+status colours plus text or icons, and a legend. Include branch filtering,
+responsive navigation, accessible node selection, and a highlighted
+"Recommended next skill" with a brief reason based on prerequisites,
+evidence gaps, and the user's current goals. Keep game rewards subordinate
+to evidence; points or clicks must not establish mastery.
+
+Keep skill data separate from rendering logic inside the HTML, using a
+versioned JSON-compatible structure with stable node IDs, branches,
+statuses, session sources, evidence, prerequisite and related-node IDs,
+exercises, completion criteria, and recommendation information. Update
+data without rebuilding the interface; reuse the existing tree when available.
+
+Support local browser saving and JSON export/import of the full learning
+record. Validate imports before replacing data, preserve the current tree
+on invalid input, and render imported text safely. Explain that browser
+storage can be cleared or unavailable and JSON export is the portable
+backup. Future sessions cannot assume access to browser-local changes:
+use the latest exported JSON or accessible saved artifact before updating.
+
+Deliver the HTML file with brief instructions for opening it in a browser,
+saving/exporting progress, importing JSON, and updating it after future
+sessions. Verify node details, filtering, responsive layout, local saving,
+and JSON round-tripping when tools permit; disclose unverified behaviour.
+
 ## Success criteria
 
 The user should become better able to:
