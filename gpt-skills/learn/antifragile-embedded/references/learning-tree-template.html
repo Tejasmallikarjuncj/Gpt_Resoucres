@@ -17,10 +17,15 @@
 <div class="legend" aria-label="Status legend" id="legend"></div>
 <p class="muted"><small>Dashed cards are proposed skills. Arrows indicate reading order within a branch; named prerequisites show the actual dependencies.</small></p>
 <p id="message" role="status" aria-live="polite"></p>
-<div class="layout"><section id="tree" class="branches" aria-label="Skill branches"></section><aside id="details" class="panel" aria-label="Selected skill details"><h2>Select a skill</h2><p>Inspect its evidence and try its next exercise.</p></aside></div>
+<div class="layout"><section id="tree" class="branches" aria-label="Skill branches"></section><aside id="details" class="panel" aria-label="Selected skill details"><h2>Select a skill</h2><p>Nodes represent reusable abilities across sessions. Inspect the concrete evidence and try the next exercise.</p></aside></div>
 <footer>Open this file directly in a browser. Changes save in this browser when storage is available. Export JSON for a portable backup and share the latest export in your next learning session. Import replaces the current record after validation; export first to keep a backup. Browser storage may be cleared and is not shared between devices or reliably between file locations.</footer>
 </main>
 <!-- Edit only this data block to personalise the starter. Keep IDs stable.
+     Model reusable concepts in titles, IDs and branches, not individual problems.
+     Example: "Periodic tasks" is the skill; an "80 ms runnable" belongs in
+     session evidence or an exercise. This example is not a learning record.
+     Reuse an existing concept node across sessions and append its evidence.
+     Criteria assess the transferable ability; one solved case may not suffice.
      Use a unique treeId for each learner/tree. Increment revision after session updates.
      Escape less-than signs as \u003c when serialising data into this script element. -->
 <script type="application/json" id="skill-data">

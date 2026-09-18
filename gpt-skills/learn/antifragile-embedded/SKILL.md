@@ -196,6 +196,34 @@ embedded revision takes precedence over older browser storage. Set `starter`
 to false once the record has been personalised. Preserve the JSON schema
 and escape `<` as `\u003c` when embedding user-provided strings in the HTML.
 
+### Reusable concepts, concrete evidence
+
+Build a cumulative tree of transferable concepts and practical abilities
+across sessions. Name branches, node titles, and stable IDs for the underlying
+concept, not a particular bug, ticket, project, function, device, dataset,
+or numeric parameter. Keep concepts specific enough to explain and assess;
+"universal" does not mean vague labels such as "Engineering".
+
+For example, a session about an 80 ms runnable should contribute to a
+"Periodic tasks" node. Put the 80 ms interval, runnable name, observed
+behaviour, and debugging work in session sources, evidence, or exercises.
+Add separate concepts such as scheduling jitter or deadline handling only
+when covered, or explicitly mark them as future proposals. Likewise, an
+experiment on one model or dataset can contribute to "Model evaluation".
+These examples explain categorisation and are not evidence of past learning.
+
+Before adding a node, look for an existing equivalent concept and append
+new session evidence there, preserving its ID and prior history. Split nodes
+only when they represent distinct, assessable abilities or prerequisites.
+When generalising an existing problem-specific node, preserve its evidence
+and update dependent references if its ID must change.
+
+Write explanations and completion criteria for the reusable ability; use
+concrete problems as exercises. Scope each evidence item to what the user
+actually showed. Solving one instance does not automatically demonstrate
+the broader concept: require an explanation of the general mechanism or
+application to a meaningfully changed case when the criterion calls for it.
+
 ### Structure and evidence
 
 - Represent each concept or practical ability as a node, grouped into
